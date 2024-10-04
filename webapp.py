@@ -32,6 +32,7 @@ def make_downloadable_df_format(data, format_type="csv"):
     b64 = base64.b64encode(datafile.encode()).decode()  # B64 encoding
     st.markdown("### ** Download File  📩 ** ")
     new_filename = "fake_dataset_{}.{}".format(timestr, format_type)
+    new_filename = f"fake_dataset_{timestr}.{format_type}"
     href = f'<a href="data:file/{format_type};base64,{b64}" download="{new_filename}">Click Here!</a>'
     st.markdown(href, unsafe_allow_html=True)
 
@@ -56,7 +57,7 @@ def generate_locale_profile(number, locale, random_seed=200):
 
 custom_title = """
     <div style="background-color:teal ;padding:10px">
-    <h2 style="color:white;text-align:center;">FAKE DATA GENERATOR</h2>
+    <h2 style="color:white;text-align:center;"> TINAs FAKE DATA GENERATOR</h2>
     </div>
 """
 
@@ -100,7 +101,7 @@ def main():
                                "tl_PH", "tr_TR", "tw_GH", "uk_UA", "zh_CN", "zh_TW"]
         locale = st.sidebar.multiselect("Select Locale", localized_providers, default="en_US")
 
-        profile_options_list = ['username', 'name', 'sex', 'address', 'mail', 'birthdate''job', 'company', 'ssn',
+        profile_options_list = ['username', 'name', 'sex', 'address', 'mail', 'birthdate','job', 'company', 'ssn',
                                 'residence', 'current_location', 'blood_group', 'website']
         profile_fields = st.sidebar.multiselect("Fields", profile_options_list, default='username')
 
